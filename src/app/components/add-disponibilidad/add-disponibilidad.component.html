@@ -1,0 +1,67 @@
+<div>
+
+    <form class="content" (submit)="registra()">
+        <div class="submit-form">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h6>Registro de Disponibilidad </h6>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-3">
+                    <label for="idDisponibilidad">Id</label>
+                    <input type="text" class="form-control" name="idDisponibilidad" id="idDisponibilidad"
+                        value="AUTOGENERADO" disabled />
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="horaInicio">Hora de Inicio</label>
+                    <input type="text" class="form-control" name="horaInicio" id="horaInicio" maxlength="8" [(ngModel)]="disponibilidad.horaInicio" />
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="horaFin">Hora de Fin</label>
+                    <input type="text" class="form-control" name="horaFin" id="horaFin" maxlength="8" [(ngModel)]="disponibilidad.horaFin" />
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-3">
+                    <label for="dia">Dia</label>
+                    <input type="text" class="form-control" id="dia" name="dia" maxlength="10" [(ngModel)]="disponibilidad.dia"/>
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="idCiclo">Id de Ciclo</label>
+                    <select id="idCiclo" name="idCiclo" class="form-control" [(ngModel)]="disponibilidad.ciclo!.idCiclo">
+                        <option value="-1"> [Seleccione] </option>
+
+                        <option *ngFor="let aux of lstCiclos" value="{{aux.idCiclo}}" >{{aux.nombre}} </option>
+                    </select>
+                </div>
+
+                <div class="col-lg-3">
+                    <label for="idUsuario">Id de Usuario</label>
+                    <select id="idUsuario" name="idUsuario" class="form-control" [(ngModel)]="disponibilidad.usuario!.idUsuario">
+                        <option value="-1"> [Seleccione] </option>
+
+                        <option  *ngFor="let aux of lstUsuarios" value="{{aux.idUsuario}}" >{{aux.nombres}}</option>  
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top: 3%">
+                <div class="col-lg-12">
+                    <button class="btn btn-success">Enviar</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </form>
+
+
+</div>
